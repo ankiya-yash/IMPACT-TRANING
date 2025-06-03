@@ -1,19 +1,54 @@
-public class linklist {
+class Node {
+    int data;
+    Node next;
 
-    class node{
-        int data;
-        node next;
-
-    
-    void  node(int data){
+    Node(int data) {
         this.data = data;
         this.next = null;
     }
-   } 
+}
 
-   public static void main(String[] args) {
-    
-    
-   }
-    
+class LinkedList {
+    Node head;
+
+    void append(int data) {
+        Node newNode = new Node(data);
+        if (head == null) {
+            head = newNode;
+            return;
+        }
+        Node temp = head;
+        while (temp.next != null) {
+            temp = temp.next;
+        }
+        temp.next = newNode;
+    }
+
+  
+    void insertAtHead(int data) {
+        Node newNode = new Node(data);
+        newNode.next = head;
+        head = newNode;
+    }
+
+    void printList() {
+        Node temp = head;
+        while (temp != null) {
+            System.out.print(temp.data + " >> ");
+            temp = temp.next;
+        }
+        System.out.println("Null");
+    }
+}
+
+public class linklist {
+    public static void main(String[] args) {
+        LinkedList Bucket = new LinkedList();
+        Bucket.append(18);
+        Bucket.append(45);
+        Bucket.append(7);
+        Bucket.append(10);
+        Bucket.insertAtHead(99); 
+        Bucket.printList();
+    }
 }
