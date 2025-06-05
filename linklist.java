@@ -24,11 +24,25 @@ class LinkedList {
         temp.next = newNode;
     }
 
-  
     void insertAtHead(int data) {
         Node newNode = new Node(data);
         newNode.next = head;
         head = newNode;
+    }
+
+    void removeLast() {
+        if (head == null) {
+            return;
+        }
+        if (head.next == null) {
+            head = null;
+            return;
+        }
+        Node temp = head;
+        while (temp.next.next != null) {
+            temp = temp.next;
+        }
+        temp.next = null;
     }
 
     void printList() {
@@ -50,5 +64,7 @@ public class linklist {
         Bucket.append(10);
         Bucket.insertAtHead(99); 
         Bucket.printList();
+        Bucket.removeLast(); 
+        Bucket.printList();    
     }
 }
